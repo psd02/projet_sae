@@ -3,4 +3,20 @@ project(projet_sae)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(projet_sae main.cpp)
+
+include(FetchContent)
+
+FetchContent_Declare(
+        SDL3
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_TAG release-3.2.0
+)
+
+FetchContent_MakeAvailable(SDL3)
+
+
+add_executable(projet_sae main.cpp
+)
+
+
+target_link_libraries(projet_sae PRIVATE SDL3::SDL3)
