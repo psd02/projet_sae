@@ -16,7 +16,16 @@ FetchContent_MakeAvailable(SDL3)
 
 
 add_executable(projet_sae main.cpp
+        src/Affichage.cpp
+        src/Affichage.h
 )
 
 
 target_link_libraries(projet_sae PRIVATE SDL3::SDL3)
+
+# Copy SDL3.dll next to the executable
+add_custom_command(TARGET projet_sae POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:SDL3::SDL3>
+        $<TARGET_FILE_DIR:projet_sae>
+)
