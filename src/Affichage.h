@@ -39,8 +39,12 @@ private:
     SDL_Surface *img_test = IMG_Load(background_path[MISSING]);
     SDL_Texture *test = SDL_CreateTextureFromSurface(renderer, img_test);
 
+    // textures
+    SDL_Texture *tiles_textures[5]; // change later
+    SDL_Texture *sprites_textures[5]; // change later
+
     //map
-    uint8_t map[MAP_HEIGHT][MAP_WIDTH];
+    uint8_t map[MAP_HEIGHT][MAP_WIDTH] {0};
 };
 
 
