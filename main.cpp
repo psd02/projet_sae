@@ -7,7 +7,17 @@
 int main() {
     Affichage *gui = new Affichage();
 
-    while (gui->running) {
+    bool running = true;
+    while (running) {
+        // this thing bellow will be used for controls AND closing the game
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_EVENT_QUIT) {
+                running = false;
+            }
+        }
+
+
         // game loop
         gui->process(); // update the gui
     }
