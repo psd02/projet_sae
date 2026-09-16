@@ -12,7 +12,13 @@ FetchContent_Declare(
         GIT_TAG release-3.2.0
 )
 
-FetchContent_MakeAvailable(SDL3)
+FetchContent_Declare(
+        SDL3_image
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
+        GIT_TAG release-3.2.0
+)
+
+FetchContent_MakeAvailable(SDL3 SDL3_image)
 
 
 add_executable(projet_sae main.cpp
@@ -23,11 +29,29 @@ add_executable(projet_sae main.cpp
 )
 
 
-target_link_libraries(projet_sae PRIVATE SDL3::SDL3)
+target_link_libraries(projet_sae PRIVATE
+        SDL3::SDL3
+        SDL3_image::SDL3_image
+)
+
 
 # Copy SDL3.dll next to the executable
 add_custom_command(TARGET projet_sae POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:SDL3::SDL3>
         $<TARGET_FILE_DIR:projet_sae>
+)
+
+# Same for SDL3_image
+add_custom_command(TARGET projet_sae POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:SDL3_image::SDL3_image>
+        $<TARGET_FILE_DIR:projet_sae>
+)
+
+# Add the assets folder
+add_custom_command(TARGET projet_sae POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:projet_sae>/assets
 )
