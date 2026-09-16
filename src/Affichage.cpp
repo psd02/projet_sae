@@ -3,6 +3,8 @@
 //
 
 #include "Affichage.h"
+#include "background_sprite.h"
+#include "background_sprite_path.h"
 
 Affichage::Affichage() {
     //
@@ -15,5 +17,10 @@ void Affichage::process() {
             running = false;
         }
     }
+    // show background tiles
+    //
+
+    // show sprites
+    //
 }
 
