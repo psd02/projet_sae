@@ -7,6 +7,8 @@
 
 #include <SDL3/SDL.h>
 
+#include "background_sprite.h"
+
 class Affichage {
 public:
     Affichage();

@@ -18,6 +18,8 @@ FetchContent_MakeAvailable(SDL3)
 add_executable(projet_sae main.cpp
         src/Affichage.cpp
         src/Affichage.h
+        src/background_sprite.h
+        src/background_sprite_path.h
 )
 
 
