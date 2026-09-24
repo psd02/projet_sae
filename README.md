@@ -1,3 +1,5 @@
+**PAS DE COPIER-COLLER D'IA BORDEL DE MERDE**
+
 **Infos générales**
 - Courte aventure
 - éléments de survie
