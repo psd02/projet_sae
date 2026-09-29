@@ -6,8 +6,8 @@
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 int main() {
-    Affichage *gui = new Affichage();
     Engine *engine = new Engine();
+    Affichage *gui = new Affichage();
 
     bool running = true;
     while (running) {

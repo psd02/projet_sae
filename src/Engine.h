@@ -13,6 +13,8 @@ class Engine {
 public:
     Engine();
     ~Engine();
+    int save_progress();
+    int load_progress();
     void process();
     void add_sprite(Sprite sprite);
     void remove_sprite(Sprite sprite);

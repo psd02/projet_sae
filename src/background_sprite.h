@@ -5,6 +5,8 @@
 #ifndef PROJET_SAE_BACKGROUND_SPRITE_H
 #define PROJET_SAE_BACKGROUND_SPRITE_H
 
+#include <cstdint>
+
 typedef enum BackgroundTiles {
     MISSING = 0,
     GRASS = 1,
