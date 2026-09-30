@@ -58,6 +58,12 @@ int Engine::save_progress() {
     // inventory
     // TODO
     j["inventory"] = {};
+    for (auto value:inventory) {
+        j["inventory"].push_back({
+            {"object_type", value.object_type},
+            {"amount", value.amount}
+        });
+    }
 
     // save data inside save.json
     std::ofstream output("save.json");
@@ -96,7 +102,9 @@ int Engine::load_progress() {
 
         if (info["inventory"]!=nullptr) {
             // load inventory
-            // TODO
+            for (auto value:info["inventory"]) {
+                inventory.push_back({value["object_type"], value["amount"]});
+            }
         }
 
         if (info["sprites"]!=nullptr) {
@@ -112,13 +120,21 @@ int Engine::load_progress() {
 
 void Engine::process() {
     // check if a key is pressed
-    if (up) {
-        std::cout << "up\n";
-    } else if (down) {
-        std::cout << "down\n";
-    } else if (left) {
-        std::cout << "left\n";
-    } else if (right) {
-        std::cout << "right\n";
+    if (!isAnimating) {
+        if (up) {
+            std::cout << "up\n";
+            isAnimating=true;
+        } else if (down) {
+            std::cout << "down\n";
+            isAnimating=true;
+        } else if (left) {
+            std::cout << "left\n";
+            isAnimating=true;
+        } else if (right) {
+            std::cout << "right\n";
+            isAnimating=true;
+        }
     }
+
+    // rest of the engine (probably nothing except animations lol)
 }

@@ -48,6 +48,7 @@ int main() {
                         engine->right = true;
                         break;
                 }
+                // this is for debugging and finding out which key is what
                 std::cout << event.key.key << std::endl;
             }
 
