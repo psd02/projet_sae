@@ -29,6 +29,7 @@ add_executable(projet_sae main.cpp
         src/Engine.cpp
         src/Engine.h
         src/json.hpp
+        src/objects.h
 )
 
 
