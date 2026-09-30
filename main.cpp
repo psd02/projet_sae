@@ -34,6 +34,19 @@ int main() {
                     case 1073741905: // down arrow
                         engine->down = true;
                         break;
+
+                    case 113: // 113 is Q
+                        engine->left = true;
+                        break;
+                    case 1073741904: // left arrow
+                        engine->left = true;
+                        break;
+                    case 100: // D
+                        engine->right = true;
+                        break;
+                    case 1073741903: // right arrow
+                        engine->right = true;
+                        break;
                 }
                 std::cout << event.key.key << std::endl;
             }
@@ -53,6 +66,19 @@ int main() {
                         break;
                     case 1073741905: // down arrow
                         engine->down = false;
+                        break;
+
+                    case 113: // 113 is Q
+                        engine->left = false;
+                        break;
+                    case 1073741904: // left arrow
+                        engine->left = false;
+                        break;
+                    case 100: // D
+                        engine->right = false;
+                        break;
+                    case 1073741903: // right arrow
+                        engine->right = false;
                         break;
                 }
             }

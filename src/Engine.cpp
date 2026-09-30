@@ -33,6 +33,43 @@ void Engine::remove_sprite(Sprite sprite) {
 }
 
 int Engine::save_progress() {
+    // new json element to transform the data into a string
+    nlohmann::json j;
+
+    // player data
+    j["player"] = {
+        {"x", sprites[0].x},
+        {"y", sprites[0].y},
+        {"sprite_id", sprites[0].sprite_id},
+        {"state", sprites[0].state}
+    };
+
+    // other sprites data
+    j["sprites"] = {};
+    for (int i=1; i<sprites.size(); i++) {
+        j["sprites"].push_back({
+            {"x", sprites[i].x},
+            {"y", sprites[i].y},
+            {"sprite_id", sprites[i].sprite_id},
+            {"state", sprites[i].state}
+        });
+    }
+
+    // inventory
+    // TODO
+    j["inventory"] = {};
+
+    // save data inside save.json
+    std::ofstream output("save.json");
+
+    if (!output)
+    {
+        std::cerr << "Failed to open save.json, unable to save the game\n";
+        return 1;
+    }
+
+    std::string JSON{j.dump()};
+    output.write(JSON.c_str(), JSON.size());
     return 0;
 }
 
@@ -59,6 +96,7 @@ int Engine::load_progress() {
 
         if (info["inventory"]!=nullptr) {
             // load inventory
+            // TODO
         }
 
         if (info["sprites"]!=nullptr) {
@@ -79,8 +117,8 @@ void Engine::process() {
     } else if (down) {
         std::cout << "down\n";
     } else if (left) {
-        //
+        std::cout << "left\n";
     } else if (right) {
-        //
+        std::cout << "right\n";
     }
 }

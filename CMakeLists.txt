@@ -26,6 +26,9 @@ add_executable(projet_sae main.cpp
         src/Affichage.h
         src/background_sprite.h
         src/background_sprite_path.h
+        src/Engine.cpp
+        src/Engine.h
+        src/json.hpp
 )
 
 
