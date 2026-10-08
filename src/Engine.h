@@ -19,13 +19,16 @@ public:
     void add_sprite(Sprite sprite);
     void remove_sprite(Sprite sprite);
     // kinda janky, but works, so fuck it
-    bool left, right, up, down;
+    bool left = false;
+    bool right = false;
+    bool up = false;
+    bool down = false;
 
     // info for the GUI
     bool isRenderingMenu = false;
     bool isRenderingMainMenu = true;
     bool isRenderingInventory = false;
-private:
+
     // list of sprites used by the program
     // sprite 0 will ALWAYS be the player and sprite ID wont affect anything
     // only the state will affect the sprite

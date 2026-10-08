@@ -11,10 +11,6 @@
 #include "json.hpp"
 
 Engine::Engine() {
-    // set controls to false, just to be sure
-
-    up, down, left, right = false;
-
     // load the sprites from the json
     // if nothing found then just create a player and set the default position on the map (prepare for generation)
     load_progress();
@@ -123,18 +119,32 @@ void Engine::process() {
     if (!isAnimating) {
         if (up) {
             std::cout << "up\n";
-            isAnimating=true;
+            //isAnimating=true;
+            sprites[0].y--;
         } else if (down) {
             std::cout << "down\n";
-            isAnimating=true;
+            //isAnimating=true;
+            sprites[0].y++;
         } else if (left) {
             std::cout << "left\n";
-            isAnimating=true;
+            //isAnimating=true;
+            sprites[0].x--;
         } else if (right) {
             std::cout << "right\n";
-            isAnimating=true;
+            //isAnimating=true;
+            sprites[0].x++;
         }
     }
 
+    if (sprites[0].x<0) {
+        sprites[0].x = 0;
+    } else if (sprites[0].x>=768){
+        sprites[0].x=767;
+    }
+    if (sprites[0].y<0) {
+        sprites[0].y = 0;
+    } else if (sprites[0].y>=768) {
+        sprites[0].y = 767;
+    }
     // rest of the engine (probably nothing except animations lol)
 }

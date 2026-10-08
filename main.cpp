@@ -6,8 +6,8 @@
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 int main() {
-    Engine *engine = new Engine();
-    Affichage *gui = new Affichage();
+    Engine engine;
+    Affichage *gui = new Affichage(engine);
 
     bool running = true;
     while (running) {
@@ -23,29 +23,29 @@ int main() {
                     default:
                         break;
                     case 122: // 122 is Z
-                        engine->up = true;
+                        engine.up = true;
                         break;
                     case 1073741906: // up arrow
-                        engine->up = true;
+                        engine.up = true;
                         break;
                     case 115: // S
-                        engine->down = true;
+                        engine.down = true;
                         break;
                     case 1073741905: // down arrow
-                        engine->down = true;
+                        engine.down = true;
                         break;
 
                     case 113: // 113 is Q
-                        engine->left = true;
+                        engine.left = true;
                         break;
                     case 1073741904: // left arrow
-                        engine->left = true;
+                        engine.left = true;
                         break;
                     case 100: // D
-                        engine->right = true;
+                        engine.right = true;
                         break;
                     case 1073741903: // right arrow
-                        engine->right = true;
+                        engine.right = true;
                         break;
                 }
                 // this is for debugging and finding out which key is what
@@ -57,29 +57,29 @@ int main() {
                     default:
                         break;
                     case 122: // 122 is Z
-                        engine->up = false;
+                        engine.up = false;
                         break;
                     case 1073741906: // up arrow
-                        engine->up = false;
+                        engine.up = false;
                         break;
                     case 115: // S
-                        engine->down = false;
+                        engine.down = false;
                         break;
                     case 1073741905: // down arrow
-                        engine->down = false;
+                        engine.down = false;
                         break;
 
                     case 113: // 113 is Q
-                        engine->left = false;
+                        engine.left = false;
                         break;
                     case 1073741904: // left arrow
-                        engine->left = false;
+                        engine.left = false;
                         break;
                     case 100: // D
-                        engine->right = false;
+                        engine.right = false;
                         break;
                     case 1073741903: // right arrow
-                        engine->right = false;
+                        engine.right = false;
                         break;
                 }
             }
@@ -88,7 +88,7 @@ int main() {
 
         // game loop
         gui->process(); // update the gui
-        engine->process();
+        engine.process();
     }
     return 0;
     // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
