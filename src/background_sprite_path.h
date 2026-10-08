@@ -8,7 +8,12 @@
 inline const char* background_path[] = {
     "assets/missing.png",
     "assets/tiles/grass.png",
-    "assets/tiles/dirt.png"
+    "assets/tiles/dirt.png",
+    "assets/tiles/cliff.png",
+    "assets/tiles/water.png",
+    "assets/tiles/water_shallow.png",
+    "assets/tiles/sand.png",
+    "assets/tiles/dev_wall.png"
 };
 
 inline const char* sprite_path[] = {

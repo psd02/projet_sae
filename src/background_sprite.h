@@ -11,9 +11,11 @@ typedef enum BackgroundTiles {
     MISSING = 0,
     GRASS = 1,
     DIRT = 2,
-    SAND = 3,
+    CLIFF = 3,
     WATER = 4,
-    RIVER_WATER = 5,
+    WATER_SHALLOW = 5,
+    SAND = 6,
+    DEV_WALL = 7
 };
 
 typedef enum SpriteTiles {
