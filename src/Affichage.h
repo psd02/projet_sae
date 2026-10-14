@@ -48,9 +48,6 @@ private:
     SDL_Texture *tiles_textures[256]; // change later
     SDL_Texture *sprites_textures[256]; // change later
 
-    //map
-    uint8_t map[MAP_HEIGHT][MAP_WIDTH] {0};
-
     bool background_animation_state = false; // can only do 2state for now
 };
 

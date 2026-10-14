@@ -22,6 +22,9 @@ int main() {
                 switch (event.key.key) {
                     default:
                         break;
+                    case 13: // enter
+                        engine.start = true;
+                        break;
                     case 122: // 122 is Z
                         engine.up = true;
                         break;
@@ -47,6 +50,13 @@ int main() {
                     case 1073741903: // right arrow
                         engine.right = true;
                         break;
+                    //debug
+                    case 102: // F
+                        engine.generate();
+                        break;
+                    case 103: // G
+                        engine.save_progress();
+                        break;
                 }
                 // this is for debugging and finding out which key is what
                 std::cout << event.key.key << std::endl;
@@ -55,6 +65,9 @@ int main() {
             if (event.type == SDL_EVENT_KEY_UP) {
                 switch (event.key.key) {
                     default:
+                        break;
+                    case 13: // enter
+                        engine.start = false;
                         break;
                     case 122: // 122 is Z
                         engine.up = false;

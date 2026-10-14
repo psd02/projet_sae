@@ -13,30 +13,6 @@
 #include "background_sprite_path.h"
 
 Affichage::Affichage(Engine& e) : engine(e) {
-    // load map.bin
-    std::ifstream file("assets/map.bin", std::ios::binary);
-
-    if (!file) {
-        std::cerr << "Failed to open file assets/map.bin\n";
-    } else {
-        uint8_t value;
-        size_t index = 0;
-
-        while (file.read(reinterpret_cast<char*>(&value), sizeof(value))) {
-
-            if (index >= MAP_WIDTH * MAP_HEIGHT) {
-                std::cerr << "Map file is too large!\n";
-                break;
-            }
-
-            uint16_t x = index % MAP_WIDTH;
-            uint16_t y = index / MAP_WIDTH;
-
-            map[y][x] = value;
-
-            index++;
-        }
-    }
 
     // load textures
     for (int i = 0; i <= 7; i++) {
@@ -56,7 +32,7 @@ Affichage::Affichage(Engine& e) : engine(e) {
         }
     }
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 5; i++) {
         // only 3 sprites for now
         // load texture
         SDL_Surface *surface = IMG_Load(sprite_path[i]);
@@ -109,7 +85,7 @@ void Affichage::process() {
 
             SDL_FRect src;
             // for water tile
-            if (map[y][x] == WATER || map[y][x] == WATER_SHALLOW) {
+            if (engine.map[y][x] == WATER || engine.map[y][x] == WATER_SHALLOW) {
                 int multiplier = 0;
                 if ((clock()%1500)>=1000) {
                     multiplier = 2;
@@ -133,7 +109,7 @@ void Affichage::process() {
                 };
             }
 
-            SDL_RenderTexture(renderer, tiles_textures[map[y][x]], &src, &dst);
+            SDL_RenderTexture(renderer, tiles_textures[engine.map[y][x]], &src, &dst);
         }
     }
 
@@ -149,7 +125,7 @@ void Affichage::process() {
             16.0f * 4.0f * scale
         };
         SDL_FRect src = {
-            16.0f*0, // frame in spritesheet, change to player->state
+            16.0f*engine.sprites[i].state, // frame in spritesheet, change to player->state
             0,
             16,
             16
@@ -167,11 +143,12 @@ void Affichage::process() {
         16.0f * 4.0f * scale
     };
     SDL_FRect src = {
-        16.0f*engine.sprites[0].state, // frame in spritesheet, change to player->state
-        0,
+        16.0f*(engine.sprites[0].state%10), // frame in spritesheet, change to player->state
+        16.0f*((int)engine.sprites[0].state/10),
         16,
         16
     };
+
     SDL_RenderTexture(renderer, sprites_textures[1], &src, &dst);
     // sprites_textures[1] is the player sprite
 
