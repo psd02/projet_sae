@@ -1,0 +1,79 @@
+World Tiles :
+water: 0, 148, 255
+water_shallow : 0, 255, 255 
+sand: 255, 216, 0
+
+dirt: 160, 60, 0
+grass: 0, 190, 0
+moss: 0, 127, 14
+
+path: 255, 177, 52
+	rotation: 255, 177, 53
+path_turn: 255, 177, 54
+	rotation: 255, 177, 55
+		  255, 177, 56
+		  255, 177, 57
+path_t: 255, 177, 58
+	rotaion: 255, 177, 59
+		 255, 177, 60
+		 255, 177, 61
+path_plus: 255, 177, 62
+
+cliff: 113, 82, 35
+cave_floor: 
+cave_wall: 127, 0, 55
+
+dev_wall: 0, 0, 0
+blank: 255, 255, 255
+darkness: 127, 51, 0
+
+Sprites :
+rock: 160, 160, 160
+branch:
+
+campfire_off: 132, 0, 0
+campfire_on: 255, 0, 0
+
+ore_deposit: 
+ore_deposit_broken: 
+
+flower_blue:
+flower_red:
+flower_yellow:
+flower_purple:
+
+foliage:
+vines: 91, 127, 0
+
+tree1: 
+
+Easter Eggs : 
+blob: 0, 148, 255
+
+Large Textures :
+camp: 192, 192, 192
+
+
+
+
+
+
+marqueurs : 
+Blanc :
+0: spawn
+1: cave1 entrance (tp)
+2: cave1 entrance (tp)
+3: last area access (no tp)
+4: cave2 entrance (tp)
+5: cave2 entrance (tp)
+6: cave2 entrance (tp)
+7: cave3 entrance (tp)
+8: small cave (tp)
+
+Rose : quest items
+1: 
+2: cave3 entrance ; Axe(w)
+3: 
+4: 
+
+Violet: shortcut
