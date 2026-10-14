@@ -23,13 +23,12 @@ typedef enum SpriteTiles {
     PLAYER = 1,
     BLANK = 2,
     TREE = 3,
-    ROCK = 4,
-    BUSH = 5,
+    ROCK = 4
 };
 
 struct Sprite {
-    int x;
-    int y;
+    float x;
+    float y;
     uint8_t sprite_id = 0;
     uint8_t state = 0; // sprite number in the sprite sheet,
     //if the sprite sheet is only 1 sprite this variable will get ignored, otherwise it will loop

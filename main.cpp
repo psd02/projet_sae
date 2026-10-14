@@ -22,6 +22,9 @@ int main() {
                 switch (event.key.key) {
                     default:
                         break;
+                    case 13: // enter
+                        engine.start = true;
+                        break;
                     case 122: // 122 is Z
                         engine.up = true;
                         break;
@@ -47,18 +50,12 @@ int main() {
                     case 1073741903: // right arrow
                         engine.right = true;
                         break;
-
-                    case 113: // 113 is Q
-                        engine->left = true;
+                    //debug
+                    case 102: // F
+                        engine.generate();
                         break;
-                    case 1073741904: // left arrow
-                        engine->left = true;
-                        break;
-                    case 100: // D
-                        engine->right = true;
-                        break;
-                    case 1073741903: // right arrow
-                        engine->right = true;
+                    case 103: // G
+                        engine.save_progress();
                         break;
                 }
                 // this is for debugging and finding out which key is what
@@ -69,6 +66,9 @@ int main() {
                 switch (event.key.key) {
                     default:
                         break;
+                    case 13: // enter
+                        engine.start = false;
+                        break;
                     case 122: // 122 is Z
                         engine.up = false;
                         break;
@@ -93,19 +93,6 @@ int main() {
                         break;
                     case 1073741903: // right arrow
                         engine.right = false;
-                        break;
-
-                    case 113: // 113 is Q
-                        engine->left = false;
-                        break;
-                    case 1073741904: // left arrow
-                        engine->left = false;
-                        break;
-                    case 100: // D
-                        engine->right = false;
-                        break;
-                    case 1073741903: // right arrow
-                        engine->right = false;
                         break;
                 }
             }

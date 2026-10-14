@@ -6,20 +6,22 @@
 #define PROJET_SAE_BACKGROUND_SPRITE_TILES_H
 
 inline const char* background_path[] = {
-    "assets/missing.png",
-    "assets/tiles/grass.png",
-    "assets/tiles/dirt.png",
-    "assets/tiles/cliff.png",
-    "assets/tiles/water.png",
-    "assets/tiles/water_shallow.png",
-    "assets/tiles/sand.png",
-    "assets/tiles/dev_wall.png"
+    "assets/tiles/dev/missing.png",
+    "assets/tiles/world/grass.png",
+    "assets/tiles/world/dirt.png",
+    "assets/tiles/world/cliff.png",
+    "assets/tiles/world/water.png",
+    "assets/tiles/world/water_shallow.png",
+    "assets/tiles/world/sand.png",
+    "assets/tiles/dev/dev_wall.png"
 };
 
 inline const char* sprite_path[] = {
     "assets/missing.png",
     "assets/sprites/player.png",
-    "assets/sprites/blank.png"
+    "assets/sprites/blank.png",
+    "assets/sprites/tree1.png",
+    "assets/sprites/rock.png"
 };
 
 #endif //PROJET_SAE_BACKGROUND_SPRITE_TILES_H
